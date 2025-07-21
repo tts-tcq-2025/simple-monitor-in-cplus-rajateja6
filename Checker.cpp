@@ -2,8 +2,14 @@
 #include <iostream>
 using namespace std;
 
+const float TEMP_MIN = 0;
+const float TEMP_MAX = 45;
+const float SOC_MIN = 20;
+const float SOC_MAX = 80;
+const float CHARGE_RATE_MAX = 0.8;
+
 bool temperatureIsOk(float temperature){
- if(temperature < 0 || temperature > 45) {
+ if(temperature < TEMP_MIN || temperature > TEMP_MAX) {
     cout << "Temperature out of range!\n";
     return false;
   }
@@ -11,7 +17,7 @@ bool temperatureIsOk(float temperature){
 }
 
 bool socIsOk(float soc){
- if(soc < 20 || soc > 80) {
+ if(soc < SOC_MIN || soc > SOC_MAX) {
     cout << "State of Charge out of range!\n";
     return false;
   }
@@ -19,7 +25,7 @@ bool socIsOk(float soc){
 }
 
 bool chargeRateIsOk(float chargeRate){
- if(chargeRate > 0.8) {
+ if(chargeRate > CHARGE_RATE_MAX) {
     cout << "Charge Rate out of range!\n";
     return false;
   }
